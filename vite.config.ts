@@ -4,12 +4,12 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  root: process.cwd(),
+  root: path.resolve(__dirname, '.'),
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-  },
-  server: {
-    port: 3000,
+    rollupOptions: {
+      input: path.resolve(__dirname, 'public/index.html'),
+    },
   },
 })
